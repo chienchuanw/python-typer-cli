@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "core"
+version = "0.1.0"
+description = ""
+authors = ["Chien Chuan Wang <chien@chienchuan.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+typer = "0.3.2"
+colorama = "0.4.4"
+shellingham = "1.4.0"
+pytest = "6.2.4"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
