@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "core"
+name = "todo"
 version = "0.1.0"
 description = ""
 authors = ["Chien Chuan Wang <chien@chienchuan.com>"]

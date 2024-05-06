@@ -1,6 +1,6 @@
 from typing import Optional
 import typer
-from core import __app_name__, __version__
+from todo import __app_name__, __version__
 
 # Creates an explicit Typer application, app.
 app = typer.Typer()
