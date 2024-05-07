@@ -1,9 +1,50 @@
 from typing import Optional
 import typer
-from todo import __app_name__, __version__
+from todo import __app_name__, __version__, ERRORS, config, database
+
+from pathlib import Path
 
 # Creates an explicit Typer application, app.
 app = typer.Typer()
+
+
+# define init() as a Typer command using the @app.command() decorator.
+@app.command
+def init(
+    # define a Typer Option instance and assign it as a default value to db_path.
+    # To provide a value for this option, your users need to use --db-path or -db followed by a database path.
+    # The prompt argument displays a prompt asking for a database location.
+    # It also allows you to accept the default path by pressing [Enter]
+    db_path: str = typer.Option(
+        str(database.DEFAULT_DB_FILE_PATH),
+        "--db--path",
+        "-db",
+        prompt="to-do database location?",
+    ),
+) -> None:
+    """Initialize the to-do database."""
+    # calls init_app() to create the application’s configuration file and to-do database.
+    app_init_error = config.init_app(db_path)
+
+    # check if the call to init_app() returns an error. If so, lines 25 to 28 print an error message. Line 29 exits the app with a typer.Exit exception and an exit code of 1 to signal that the application terminated with an error.
+    if app_init_error:
+        typer.secho(
+            f'Creating config file failed with "{ERRORS[app_init_error]}"',
+            fg=typer.colors.RED,
+        )
+        raise typer.Exit(1)
+    # calls init_database() to initialize the database with an empty to-do list.
+    db_init_error = database.init_database(Path(db_path))
+    # check if the call to init_database() returns an error. If so, then display an error message, and exits the application. Otherwise, prints a success message in green text.
+    # secho mean "echo in styles"
+    if db_init_error:
+        typer.secho(
+            f'Creating database failed with "{ERRORS[db_init_error]}"',
+            fg=typer.colors.RED,
+        )
+        raise typer.Exit(1)
+    else:
+        typer.secho(f"The to-do database is {db_path}", fg=typer.colors.GREEN)
 
 
 # Define _version_callback().
