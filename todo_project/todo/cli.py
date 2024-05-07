@@ -9,7 +9,7 @@ app = typer.Typer()
 
 
 # define init() as a Typer command using the @app.command() decorator.
-@app.command
+@app.command()
 def init(
     # define a Typer Option instance and assign it as a default value to db_path.
     # To provide a value for this option, your users need to use --db-path or -db followed by a database path.
@@ -17,7 +17,7 @@ def init(
     # It also allows you to accept the default path by pressing [Enter]
     db_path: str = typer.Option(
         str(database.DEFAULT_DB_FILE_PATH),
-        "--db--path",
+        "--db-path",
         "-db",
         prompt="to-do database location?",
     ),
