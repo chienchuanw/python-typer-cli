@@ -37,6 +37,7 @@ def init(
     db_init_error = database.init_database(Path(db_path))
     # check if the call to init_database() returns an error. If so, then display an error message, and exits the application. Otherwise, prints a success message in green text.
     # secho mean "echo in styles"
+    # To print the messages in this code, you use typer.secho(). This function takes a foreground argument, fg, that allows you to use different colors when printing text to the screen. Typer provides several built-in colors in typer.colors. There you’ll find RED, BLUE, GREEN, and more. You can use those colors with secho() as you did here.
     if db_init_error:
         typer.secho(
             f'Creating database failed with "{ERRORS[db_init_error]}"',
