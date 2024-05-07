@@ -15,7 +15,7 @@ __version__ = "0.1.0"
 ) = range(7)
 
 # Use a dictionary to map code to human-readable messages.
-ERROR = {
+ERRORS = {
     DIR_ERROR: "config directory error",
     FILE_ERROR: "config file error",
     DB_READ_ERROR: "database read error",
