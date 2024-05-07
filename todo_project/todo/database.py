@@ -1,10 +1,17 @@
+"""This module provides the RP To-Do database functionality."""
+
 import configparser
 from pathlib import Path
 
 from todo import DB_WRITE_ERROR, SUCCESS
 
 # define DEFAULT_DB_FILE_PATH to hold the default database file path. The application will use this path if the user doesn’t provide a custom one.
-DEFAULT_DB_FILE_PATH = Path.home().joinpath("." + Path.home().stem + "_todo.json")
+
+# DEFAULT_DB_FILE_PATH = Path.home().joinpath("." + Path.home().stem + "_todo.json")
+
+# 原本上面那段，創造出來的檔案會是一個隱藏的 json 檔案，因為檔名前面有 .
+# 這邊會是資料庫 json 的存放路徑
+DEFAULT_DB_FILE_PATH = Path.home().joinpath(Path.home().stem + "_todo.json")
 
 
 # define get_database_path(). This function takes the path to the app’s config file as an argument, reads the input file using ConfigParser.read(), and returns a Path object representing the path to the to-do database on your file system. The ConfigParser instance stores the data in a dictionary. The "General" key represents the file section that stores the required information. The "database" key retrieves the database path.
