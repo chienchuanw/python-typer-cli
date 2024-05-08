@@ -1,9 +1,11 @@
 """This module provides the RP To-Do database functionality."""
 
 import configparser
+
 from pathlib import Path
 
 from todo import DB_WRITE_ERROR, SUCCESS
+
 
 # define DEFAULT_DB_FILE_PATH to hold the default database file path. The application will use this path if the user doesn’t provide a custom one.
 
