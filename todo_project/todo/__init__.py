@@ -2,7 +2,7 @@
 __app_name__ = "todo"
 __version__ = "0.1.0"
 
-# Assign integer numbers to each variable of all the situation.
+# Assign integer numbers to each constant variable of all the situation.
 # For instance, if we print SUCCESS, we will get 0 as result. If we print ID_ERROR, we will get 7.
 (
     SUCCESS,
@@ -14,7 +14,7 @@ __version__ = "0.1.0"
     ID_ERROR,
 ) = range(7)
 
-# Use a dictionary to map code to human-readable messages.
+# Use a dictionary to map error code to human-readable messages.
 ERRORS = {
     DIR_ERROR: "config directory error",
     FILE_ERROR: "config file error",

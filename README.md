@@ -85,3 +85,7 @@ Meanwhile, you'll also need a `tests/` directory containing a `__init__.py` file
 
 ### Step 2: Set up the To-Do CLI app with Python and Typer
 
+1. Define module-level names to hold the application's name and version
+2. Define a series of return and error codes
+3. Create the Typer CLI application with support for `--help`, `-v`, and `--version` options
+4. Create an Entry-point script

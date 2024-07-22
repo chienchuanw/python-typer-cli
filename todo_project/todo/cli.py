@@ -1,3 +1,7 @@
+"""
+This module provides the To-do CLI.
+"""
+
 from typing import Optional
 import typer
 from todo import __app_name__, __version__, ERRORS, config, database
